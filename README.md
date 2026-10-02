@@ -1,11 +1,6 @@
 # metaphysicist1.github.io
 
-Personal page of Edgar Abasov: a log of things dreamed and things shipped.
+Redirects to https://www.edgarabasov.website — the site now lives in
+[Metaphysicist1/ultra-portfolio](https://github.com/Metaphysicist1/ultra-portfolio) (edit `public/data/life.json` there).
 
-To update the site, edit `data/life.json` only:
-
-- add an entry with `"kind": "shipped"` (date `YYYY` or `YYYY-MM`), or `"kind": "dream"`;
-- when a dream comes true, add the shipped entry with `"fulfills": "<dream id>"` — the page shows "← dreamed <year>";
-- empty fields (e.g. a link with `"url": ""`) are simply not shown.
-
-Check before pushing: `node --test`. No build step; GitHub Pages serves the repo root.
+Project pages such as `/papercrawl/` are served from their own repos and are unaffected.
