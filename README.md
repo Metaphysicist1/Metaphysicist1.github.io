@@ -1,3 +1,11 @@
-# Edgar Abasov - Data Science Portfolio Website
+# metaphysicist1.github.io
 
-![image](https://github.com/user-attachments/assets/efbb73b3-1ec0-4636-b90c-6e8902c9c099)
+Personal page of Edgar Abasov: a log of things dreamed and things shipped.
+
+To update the site, edit `data/life.json` only:
+
+- add an entry with `"kind": "shipped"` (date `YYYY` or `YYYY-MM`), or `"kind": "dream"`;
+- when a dream comes true, add the shipped entry with `"fulfills": "<dream id>"` — the page shows "← dreamed <year>";
+- empty fields (e.g. a link with `"url": ""`) are simply not shown.
+
+Check before pushing: `node --test`. No build step; GitHub Pages serves the repo root.
