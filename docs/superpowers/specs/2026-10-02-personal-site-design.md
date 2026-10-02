@@ -33,7 +33,7 @@ A shipped entry may name the dream it fulfils (`fulfills`); it then shows a plai
 ## Page structure
 
 1. **Header** — name, one line in his words ("Engineer, entrepreneur, future thinker. Dreamer and doer."),
-   location line (Kiel ⇄ Tbilisi), small photo, links (GitHub, LinkedIn, email; Strava/music/Instagram
+   location line (Greifswald / Berlin), small photo, links (GitHub, LinkedIn, email; Strava/music/Instagram
    only when filled in).
 2. **Now** — 1–3 lines. Empty items are not rendered.
 3. **Log** — ledger rows: `date | kind | title — one line | link | ← dreamed <year>`.
@@ -48,7 +48,7 @@ A shipped entry may name the dream it fulfils (`fulfills`); it then shows a plai
   "updated": "2026-10-02",
   "name": "Edgar Abasov",
   "about": "Engineer, entrepreneur, future thinker. Dreamer and doer.",
-  "place": "Kiel ⇄ Tbilisi",
+  "place": "Greifswald / Berlin",
   "photo": "photo.JPG",
   "links": [{ "label": "GitHub", "url": "https://github.com/Metaphysicist1" }],
   "now": ["Building Paperclaw — ..."],
@@ -63,13 +63,17 @@ A shipped entry may name the dream it fulfils (`fulfills`); it then shows a plai
 Rules: empty/missing optional fields are not rendered; `fulfills` must reference an existing
 `dream` id, otherwise the note is skipped and a console warning is logged.
 
-## Initial content (verified from CV + GitHub)
+## Initial content (verified from CV 2026-03 + GitHub)
+
+Source of truth: `Edgar_Abasov_Resume.pdf` (March 2026). Master's is at the University of Greifswald
+(shown under Now); Kiel was an Erasmus+ year. CV link points to this PDF.
+
 
 Shipped: Paperclaw (2026, live map), ClipVault (2026), neuro-timer (2026, live), Supply-AI-Agent +
 White-Label AI Concierge (2026), PneuNet (2025, live on Cloud Run), AWS ML Specialty (2025-02),
 Math for ML specialization (2025-04), Clustar + Kaggle dataset (2025), stamo.AI co-founder/COO and
 MediaLab 5K Lari winner (2024), CoverBot (2024, live), Bank of Georgia AI Engineer (2023-10 → 2024-09,
-chatbot accuracy +15%), B.Sc. CS Batumi (2024) → M.Sc. Data Science FH Kiel, Python teacher to 80+
+chatbot accuracy +15%), B.Sc. CS Batumi (2024-02), Erasmus+ exchange year M.Sc. Data Science at HAW Kiel (ended 2026-02), Python teacher to 80+
 kids (2021–24), BSU speech-to-text research (2021–22), Azure Data Scientist cert (2021).
 
 Dreams (drafted, Edgar to confirm/replace): turn an agent into a self-sustaining company; win an
