@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { esc, validate, renderNow, renderLog, renderHeader } from "../lib.js";
+import { esc, validate, renderNow, renderLog, renderHeader, signalGeometry, toYears } from "../lib.js";
 
 const dream = { id: "d1", kind: "dream", date: "2023", title: "Win a hackathon" };
 const done = { id: "s1", kind: "shipped", date: "2024-11", title: "Won it", text: "First place.", url: "https://x.test", fulfills: "d1" };
@@ -51,4 +51,26 @@ test("renderHeader hides links without url", () => {
 test("real data/life.json is valid", () => {
   const data = JSON.parse(readFileSync(new URL("../data/life.json", import.meta.url)));
   assert.deepEqual(validate(data), []);
+});
+
+test("renderLog groups shipped entries under a year block", () => {
+  const html = renderLog([older, dream, done]);
+  assert.match(html, /<div class="yr" aria-hidden="true">2024<\/div>/);
+  assert.match(html, /<div class="yr" aria-hidden="true">2021<\/div>/);
+  assert.match(html, /class="year next"/);
+});
+
+test("toYears places months mid-month and bare years mid-year", () => {
+  assert.equal(toYears("2024"), 2024.5);
+  assert.ok(Math.abs(toYears("2024-01") - 2024.0417) < 1e-3);
+});
+
+test("signalGeometry: past in [0, nowX], chronological; dreams after now", () => {
+  const { points, ticks, nowX } = signalGeometry([older, dream, done], "2026-10");
+  const past = points.filter((p) => p.kind === "shipped");
+  const fut = points.filter((p) => p.kind === "dream");
+  assert.ok(past.every((p) => p.x >= 0 && p.x <= nowX));
+  assert.ok(past.find((p) => p.id === "s0").x < past.find((p) => p.id === "s1").x);
+  assert.ok(fut.every((p) => p.x > nowX && p.x <= 1));
+  assert.deepEqual(ticks.map((t) => t.label), ["2021", "2022", "2023", "2024", "2025", "2026"]);
 });
